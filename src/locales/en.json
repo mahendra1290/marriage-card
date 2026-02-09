@@ -1,0 +1,66 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "language": "English",
+    "weddingOf": "The Wedding of"
+  },
+  "landing": {
+    "title": "Vinod & Manisha",
+    "date": "March 9, 2026",
+    "scroll": "Scroll to explore"
+  },
+  "nav": {
+    "home": "Home",
+    "details": "Details",
+    "events": "Events"
+  },
+  "details": {
+    "dateTitle": "Date",
+    "day": "Friday",
+    "timeTitle": "Time",
+    "startTime": "7:00 PM Onwards",
+    "events": "Dinner & Reception",
+    "venueTitle": "Venue",
+    "venueName": "Grand Palace Hotel",
+    "venueCity": "Churu, Rajasthan"
+  },
+  "events": {
+    "title": "Wedding Events",
+    "mehendi": {
+        "title": "Mehendi Ceremony",
+        "date": "March 9, 2026",
+        "desc": "A colorful celebration of love applied in henna."
+    },
+    "sangeet": {
+        "title": "Sangeet Night",
+        "date": "March 9, 2026",
+        "desc": "Dance, music, and joy under the stars."
+    },
+    "wedding": {
+        "title": "The Wedding",
+        "date": "March 9, 2026",
+        "desc": "The sacred union of two souls."
+    }
+  },
+  "story": {
+    "title": "Our Journey",
+    "event1": {
+        "title": "First Meeting",
+        "date": "2020",
+        "desc": "We met at a coffee shop in Jaipur..."
+    },
+    "event2": {
+        "title": "The Proposal",
+        "date": "2023",
+        "desc": "Under the starry sky of Jaisalmer..."
+    },
+    "event3": {
+        "title": "Roka Ceremony",
+        "date": "2025",
+        "desc": "Official family gathering..."
+    }
+  },
+  "gallery": {
+      "title": "Captured Moments"
+  }
+}
