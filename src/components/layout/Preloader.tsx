@@ -1,28 +1,72 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ganeshaSymbol from '../../assets/ganesha-symbol.png';
+import petal from '../../assets/marigold-petal.png';
 
 interface PreloaderProps {
   onComplete: () => void;
 }
 
+const FlowerPetal = ({ index }: { index: number }) => {
+  // Random start position
+  const randomX = Math.random() * 100;
+  const delay = Math.random() * 2;
+  const duration = 2 + Math.random() * 2;
+  const rotation = Math.random() * 360;
+
+  return (
+    <motion.img
+      src={petal}
+      className="absolute w-6 h-6 md:w-8 md:h-8 opacity-80 mix-blend-multiply"
+      initial={{ 
+        top: -20, 
+        left: `${randomX}%`, 
+        rotate: rotation,
+        opacity: 0
+      }}
+      animate={{ 
+        top: ['0%', '100%'],
+        rotate: rotation + 180 + Math.random() * 180,
+        x: [0, Math.sin(index) * 50, 0], // Swaying motion
+        opacity: [0, 1, 0]
+      }}
+      transition={{ 
+        duration: duration, 
+        ease: "linear", 
+        repeat: Infinity, 
+        delay: delay 
+      }}
+    />
+  );
+};
+
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
+  const [petals, setPetals] = useState<number[]>([]);
+
   useEffect(() => {
     // Determine total animation time
     const timer = setTimeout(() => {
       onComplete();
     }, 4500); // 4.5 seconds total duration
 
+    // Create petals
+    setPetals(Array.from({ length: 30 }, (_, i) => i));
+
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-amber-50"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-amber-50 overflow-hidden"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
     >
+      {/* Flower Shower */}
+      {petals.map((i) => (
+        <FlowerPetal key={i} index={i} />
+      ))}
+
       <div className="relative flex flex-col items-center">
         {/* Glowing Circle Background */}
         <motion.div
