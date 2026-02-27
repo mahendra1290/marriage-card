@@ -1,7 +1,5 @@
 {
   "common": {
-    "loading": "Loading...",
-    "language": "English",
     "weddingOf": "The Wedding of"
   },
   "landing": {
@@ -80,30 +78,5 @@
   },
   "rsvp": {
     "message": "🙏 Heartiest congratulations to Vinod & Manisha on their joyous wedding! Wishing you both a lifetime of happiness, love, and togetherness. May Lord Ganesha bless your new journey ahead! 💍✨"
-  },
-  "music": {
-    "play": "Play Music",
-    "pause": "Pause Music"
-  },
-  "story": {
-    "title": "Our Journey",
-    "event1": {
-      "title": "First Meeting",
-      "date": "2020",
-      "desc": "We met at a coffee shop in Jaipur..."
-    },
-    "event2": {
-      "title": "The Proposal",
-      "date": "2023",
-      "desc": "Under the starry sky of Jaisalmer..."
-    },
-    "event3": {
-      "title": "Roka Ceremony",
-      "date": "2025",
-      "desc": "Official family gathering..."
-    }
-  },
-  "gallery": {
-    "title": "Captured Moments"
   }
 }
