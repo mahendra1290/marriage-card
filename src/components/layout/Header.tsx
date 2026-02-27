@@ -1,30 +1,21 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { useCountdown } from '../../hooks/useCountdown';
 import { Menu, X } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const timeLeft = useCountdown();
-
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'hi' : 'en');
   };
 
-  const pad = (n: number) => String(n).padStart(2, '0');
-  const compact = `${pad(timeLeft.days)}d ${pad(timeLeft.hours)}h ${pad(timeLeft.minutes)}m ${pad(timeLeft.seconds)}s`;
-
   return (
     <header className="fixed w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
       <div className="container mx-auto px-4 py-2 sm:py-3 flex justify-between items-center relative">
-        <div className="text-2xl font-serif text-amber-900 font-bold">
-         V & M
-        </div>
-
-        {/* Compact countdown - absolutely centered */}
-        <div className="absolute left-1/2 -translate-x-1/2 text-xs sm:text-sm font-mono text-amber-800 bg-amber-100/70 px-2 sm:px-3 py-1 rounded-full tracking-wide pointer-events-none">
-          {compact}
+        <div className={`text-4xl font-bold tracking-wider gold-shimmer py-1 ${
+          language === 'hi' ? 'font-hindi-script' : 'font-script'
+        }`}>
+         {language === 'hi' ? 'वी & म' : 'V & M'}
         </div>
 
         <nav className="hidden md:flex gap-6 items-center text-amber-900 font-medium">

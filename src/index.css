@@ -3,6 +3,8 @@
 @theme {
   --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-hindi-script: 'Yatra One', system-ui;
 }
 
 @layer base {

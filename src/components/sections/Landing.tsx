@@ -3,9 +3,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { ChevronDown } from 'lucide-react';
 import baraatBg from '../../assets/landing-baraat.webp';
+import { GoldDust } from '../ui/GoldDust';
+import { Countdown } from '../ui/Countdown';
 
 export const Landing: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { scrollY } = useScroll();
 
   const yBg = useTransform(scrollY, [0, 500], [0, 200]);
@@ -25,6 +27,7 @@ export const Landing: React.FC = () => {
           className="w-full h-full object-cover scale-110"
         />
         <div className="absolute inset-0 bg-black/10" />
+        <GoldDust />
       </motion.div>
 
       {/* Content */}
@@ -43,7 +46,11 @@ export const Landing: React.FC = () => {
         >
           {t('common.weddingOf')}
         </motion.p>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif mb-4 sm:mb-6 font-bold tracking-tight gold-shimmer">
+        <h1 
+          className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-4 sm:mb-6 font-medium tracking-normal gold-shimmer py-2 ${
+            language === 'hi' ? 'font-hindi-script tracking-wider' : 'font-script'
+          }`}
+        >
           {t('landing.title')}
         </h1>
         <div className="w-16 sm:w-24 h-1 bg-amber-400 mx-auto mb-4 sm:mb-6 rounded-full" />
@@ -55,6 +62,8 @@ export const Landing: React.FC = () => {
         >
           {t('landing.date')}
         </motion.p>
+
+        <Countdown />
       </motion.div>
 
       {/* Scroll Indicator */}
