@@ -8,6 +8,7 @@ import { Events } from './components/sections/Events';
 import { Preloader } from './components/layout/Preloader';
 import { ConfettiBurst } from './components/ui/ConfettiBurst';
 import { AnimatePresence } from 'framer-motion';
+import { MusicToggle } from './components/ui/MusicToggle';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ function App() {
           <Details />
           <Invitation />
           <Events />
+          <MusicToggle />
         </Layout>
       )}
     </LanguageProvider>

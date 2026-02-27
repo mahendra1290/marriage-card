@@ -1,10 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+}
+
 @layer base {
   body {
     @apply antialiased text-gray-900 bg-gray-50;
+    font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
+    letter-spacing: 0.01em;
   }
 }
+
 
 /* Vibrant gradient text — punchy contrast on warm backgrounds */
 .gold-shimmer {

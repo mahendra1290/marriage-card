@@ -5,7 +5,7 @@ import { useLanguage } from '../../context/LanguageContext';
 export const WhatsAppButton: React.FC = () => {
   const { t } = useLanguage();
   const message = encodeURIComponent(t('rsvp.message'));
-  const url = `https://wa.me/919828147695?text=${message}`;
+  const url = `https://wa.me/917742866366?text=${message}`;
 
   return (
     <motion.a

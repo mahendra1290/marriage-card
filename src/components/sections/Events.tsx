@@ -29,40 +29,75 @@ export const Events: React.FC = () => {
           {t('events.title')}
         </motion.h2>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Center line (desktop) / Left line (mobile) */}
-          <div className="absolute top-0 bottom-0 left-4 sm:left-6 md:left-1/2 w-0.5 bg-amber-300 md:-translate-x-px" />
+        {/* ── Mobile: plain stacked cards (image top, text bottom) ── */}
+        <div className="flex flex-col gap-6 md:hidden">
+          {events.map((event, index) => (
+            <motion.div
+              key={event.key}
+              className="bg-white rounded-2xl shadow-md overflow-hidden border border-amber-100"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+            >
+              {/* Full-width image on top */}
+              <div className="aspect-[16/9] overflow-hidden">
+                <img
+                  src={event.img}
+                  alt={t(`events.${event.key}.title`)}
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-          <div className="space-y-8 sm:space-y-12 md:space-y-16">
+              {/* Amber accent line */}
+              <div className="h-1 bg-gradient-to-r from-amber-400 to-orange-400" />
+
+              {/* Text below */}
+              <div className="p-4">
+                <h3 className="text-lg font-serif font-bold text-amber-900 mb-1">
+                  {t(`events.${event.key}.title`)}
+                </h3>
+                <p className="text-sm text-amber-700 font-medium mb-0.5">
+                  {t(`events.${event.key}.date`)}
+                </p>
+                <p className="text-sm text-amber-600 font-semibold mb-2">
+                  {t(`events.${event.key}.time`)}
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {t(`events.${event.key}.desc`)}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ── Desktop: alternating timeline ── */}
+        <div className="relative hidden md:block">
+          {/* Center line */}
+          <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-amber-300 -translate-x-px" />
+
+          <div className="space-y-16">
             {events.map((event, index) => {
               const isLeft = index % 2 === 0;
-
               return (
                 <motion.div
                   key={event.key}
-                  className={`relative flex items-start gap-4 sm:gap-6 md:gap-0 ${
-                    isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  className={`relative flex items-start gap-0 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}
                   initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 sm:left-6 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-amber-500 rounded-full border-3 sm:border-4 border-amber-100 -translate-x-1/2 z-10 mt-2 md:mt-6" />
-
-                  {/* Spacer for mobile left margin */}
-                  <div className="w-8 sm:w-12 flex-shrink-0 md:hidden" />
+                  <div className="absolute left-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-amber-100 -translate-x-1/2 z-10 mt-6" />
 
                   {/* Card */}
-                  <div className={`flex-1 md:w-[calc(50%-2rem)] ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}>
+                  <div className={`w-[calc(50%-2rem)] ${isLeft ? 'pr-12' : 'pl-12'}`}>
                     <motion.div
-                      className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border border-amber-100 group"
+                      className="bg-white rounded-2xl shadow-lg overflow-hidden border border-amber-100 group"
                       whileHover={{ y: -5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      {/* Image */}
                       <div className="aspect-[16/9] overflow-hidden">
                         <img
                           src={event.img}
@@ -70,27 +105,25 @@ export const Events: React.FC = () => {
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
-
-                      {/* Content */}
-                      <div className="p-4 sm:p-6">
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-amber-900 mb-1 sm:mb-2">
+                      <div className="p-6">
+                        <h3 className="text-xl md:text-2xl font-serif font-bold text-amber-900 mb-2">
                           {t(`events.${event.key}.title`)}
                         </h3>
-                        <p className="text-sm sm:text-base text-amber-700 font-medium mb-0.5 sm:mb-1">
+                        <p className="text-base text-amber-700 font-medium mb-1">
                           {t(`events.${event.key}.date`)}
                         </p>
-                        <p className="text-sm sm:text-base text-amber-600 font-medium mb-2 sm:mb-3">
+                        <p className="text-base text-amber-600 font-medium mb-3">
                           {t(`events.${event.key}.time`)}
                         </p>
-                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        <p className="text-sm text-gray-600 leading-relaxed">
                           {t(`events.${event.key}.desc`)}
                         </p>
                       </div>
                     </motion.div>
                   </div>
 
-                  {/* Invisible spacer for the other side on desktop */}
-                  <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+                  {/* Invisible spacer for the other side */}
+                  <div className="w-[calc(50%-2rem)]" />
                 </motion.div>
               );
             })}

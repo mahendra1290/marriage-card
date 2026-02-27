@@ -17,13 +17,13 @@ export const Header: React.FC = () => {
 
   return (
     <header className="fixed w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
-      <div className="container mx-auto px-4 py-2 sm:py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-2 sm:py-3 flex justify-between items-center relative">
         <div className="text-2xl font-serif text-amber-900 font-bold">
          V & M
         </div>
 
-        {/* Compact countdown - always visible */}
-        <div className="text-xs sm:text-sm font-mono text-amber-800 bg-amber-100/70 px-2 sm:px-3 py-1 rounded-full tracking-wide">
+        {/* Compact countdown - absolutely centered */}
+        <div className="absolute left-1/2 -translate-x-1/2 text-xs sm:text-sm font-mono text-amber-800 bg-amber-100/70 px-2 sm:px-3 py-1 rounded-full tracking-wide pointer-events-none">
           {compact}
         </div>
 
