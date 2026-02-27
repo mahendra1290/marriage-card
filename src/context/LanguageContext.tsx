@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import en from '../locales/en.json';
 import hi from '../locales/hi.json';
 
@@ -13,9 +13,29 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function getInitialLanguage(): Language {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'hi' || lang === 'en') return lang;
+  return 'hi';
+}
+
+function syncLangToUrl(lang: Language) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang', lang);
+  window.history.replaceState({}, '', url.toString());
+}
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
-  const [translations, setTranslations] = useState<Translations>(en);
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+  const [translations, setTranslations] = useState<Translations>(
+    getInitialLanguage() === 'hi' ? hi : en
+  );
+
+  const setLanguage = useCallback((lang: Language) => {
+    setLanguageState(lang);
+    syncLangToUrl(lang);
+  }, []);
 
   useEffect(() => {
     setTranslations(language === 'hi' ? hi : en);
@@ -24,15 +44,15 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const t = (key: string): string => {
     const keys = key.split('.');
     let value: any = translations;
-    
+
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k as keyof typeof value];
       } else {
-        return key; // Fallback to key if not found
+        return key;
       }
     }
-    
+
     return typeof value === 'string' ? value : key;
   };
 

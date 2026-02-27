@@ -20,6 +20,7 @@ export const Header: React.FC = () => {
         <nav className="hidden md:flex gap-8 items-center text-amber-900 font-medium">
           <a href="#home" className="hover:text-amber-700 transition-colors">{t('nav.home')}</a>
           <a href="#details" className="hover:text-amber-700 transition-colors">{t('nav.details')}</a>
+          <a href="#invitation" className="hover:text-amber-700 transition-colors">{t('nav.invitation')}</a>
           <a href="#events" className="hover:text-amber-700 transition-colors">{t('nav.events')}</a>
           
           <button 
@@ -44,6 +45,7 @@ export const Header: React.FC = () => {
         <div className="md:hidden bg-white/95 backdrop-blur-xl absolute w-full p-4 flex flex-col gap-4 shadow-lg">
           <a href="#home" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</a>
           <a href="#details" onClick={() => setIsMenuOpen(false)}>{t('nav.details')}</a>
+          <a href="#invitation" onClick={() => setIsMenuOpen(false)}>{t('nav.invitation')}</a>
           <a href="#events" onClick={() => setIsMenuOpen(false)}>{t('nav.events')}</a>
           <button onClick={() => {
             toggleLanguage();

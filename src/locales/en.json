@@ -12,55 +12,98 @@
   "nav": {
     "home": "Home",
     "details": "Details",
+    "invitation": "Invitation",
     "events": "Events"
+  },
+  "countdown": {
+    "title": "Counting Down To The Big Day",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
   },
   "details": {
     "dateTitle": "Date",
-    "day": "Friday",
+    "day": "Monday",
     "timeTitle": "Time",
-    "startTime": "7:00 PM Onwards",
-    "events": "Dinner & Reception",
+    "startTime": "6:15 PM Onwards",
+    "events": "Preetibhoj & Reception",
     "venueTitle": "Venue",
-    "venueName": "Grand Palace Hotel",
-    "venueCity": "Churu, Rajasthan"
+    "venueName": "Gram Jaisangsar",
+    "venueCity": "Sardarshahar, Churu, Rajasthan"
+  },
+  "invitation": {
+    "shloka": "Vakratunda Mahakaya Suryakoti Samaprabha\nNirvighnam Kuru Me Deva Sarva Karyeshu Sarvada",
+    "blessing": "With the blessings of Lord Ganesha and our elders, we cordially invite you to the auspicious occasion of the wedding of",
+    "groom": {
+      "label": "Groom",
+      "name": "Vinod",
+      "parents": "S/o Shri Bhanwar Lal Ji & Smt. Santosh Devi",
+      "family": "Bhadrecha"
+    },
+    "bride": {
+      "label": "Bride",
+      "name": "Manisha",
+      "parents": "D/o Shri Sohan Lal Ji & Smt. Pushpa Devi",
+      "family": "Soni"
+    },
+    "weds": "Weds",
+    "samvat": "Vikram Samvat 2082, Chaitra Krishna 6",
+    "hostedBy": "Hosted by: Samast Bhadrecha Parivar"
   },
   "events": {
     "title": "Wedding Events",
-    "mehendi": {
-        "title": "Mehendi Ceremony",
-        "date": "March 9, 2026",
-        "desc": "A colorful celebration of love applied in henna."
+    "baan": {
+      "title": "Haldi (Baan)",
+      "date": "Thursday, 5 March 2026",
+      "time": "9:15 AM",
+      "desc": "Turmeric ceremony blessing the couple before the wedding."
     },
-    "sangeet": {
-        "title": "Sangeet Night",
-        "date": "March 9, 2026",
-        "desc": "Dance, music, and joy under the stars."
+    "ratijoga": {
+      "title": "Ratijoga",
+      "date": "Sunday, 8 March 2026",
+      "time": "10:15 PM",
+      "desc": "Traditional Rajasthani folk songs sung through the night."
     },
-    "wedding": {
-        "title": "The Wedding",
-        "date": "March 9, 2026",
-        "desc": "The sacred union of two souls."
+    "preetibhoj": {
+      "title": "Preetibhoj (Feast)",
+      "date": "Sunday, 8 March 2026",
+      "time": "6:15 PM Onwards",
+      "desc": "Wedding feast at Gram Jaisangsar, Sardarshahar, Churu."
+    },
+    "baarat": {
+      "title": "Baarat Departure",
+      "date": "Monday, 9 March 2026",
+      "time": "4:15 PM",
+      "desc": "Wedding procession from Jaisangsar to Malsisar, Teh. Bhadra, Hanumangarh."
     }
+  },
+  "rsvp": {
+    "message": "Hello! I would like to RSVP for Vinod & Manisha's wedding on March 9, 2026."
+  },
+  "music": {
+    "play": "Play Music",
+    "pause": "Pause Music"
   },
   "story": {
     "title": "Our Journey",
     "event1": {
-        "title": "First Meeting",
-        "date": "2020",
-        "desc": "We met at a coffee shop in Jaipur..."
+      "title": "First Meeting",
+      "date": "2020",
+      "desc": "We met at a coffee shop in Jaipur..."
     },
     "event2": {
-        "title": "The Proposal",
-        "date": "2023",
-        "desc": "Under the starry sky of Jaisalmer..."
+      "title": "The Proposal",
+      "date": "2023",
+      "desc": "Under the starry sky of Jaisalmer..."
     },
     "event3": {
-        "title": "Roka Ceremony",
-        "date": "2025",
-        "desc": "Official family gathering..."
+      "title": "Roka Ceremony",
+      "date": "2025",
+      "desc": "Official family gathering..."
     }
   },
   "gallery": {
-      "title": "Captured Moments"
+    "title": "Captured Moments"
   }
 }

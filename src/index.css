@@ -5,3 +5,32 @@
     @apply antialiased text-gray-900 bg-gray-50;
   }
 }
+
+/* Vibrant gradient text — punchy contrast on warm backgrounds */
+.gold-shimmer {
+  background: linear-gradient(
+    135deg,
+    #9f1239 0%,
+    #be123c 30%,
+    #c2410c 60%,
+    #9f1239 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.4;
+  padding-block: 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Flip countdown digit animation */
+@keyframes flip-in {
+  0% { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.flip-digit {
+  animation: flip-in 0.6s ease-out;
+  perspective: 1000px;
+}
