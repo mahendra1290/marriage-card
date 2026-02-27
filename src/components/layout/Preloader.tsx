@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import ganeshaSymbol from '../../assets/ganesha-symbol.webp';
 import petal from '../../assets/marigold-petal.webp';
+import { playAudio } from '../../utils/audioManager';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -42,18 +43,25 @@ const FlowerPetal = ({ index }: { index: number }) => {
 
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const [petals, setPetals] = useState<number[]>([]);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    // Determine total animation time
+    // Show the "Open" button after 2.5s of animation instead of auto-dismissing
     const timer = setTimeout(() => {
-      onComplete();
-    }, 4500); // 4.5 seconds total duration
+      setShowButton(true);
+    }, 2500);
 
     // Create petals
     setPetals(Array.from({ length: 30 }, (_, i) => i));
 
     return () => clearTimeout(timer);
-  }, [onComplete]);
+  }, []);
+
+  const handleOpen = () => {
+    // Explicit user click -> safe to instantiate and play audio
+    playAudio();
+    onComplete();
+  };
 
   return (
     <motion.div
@@ -96,9 +104,28 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           <p className="text-3xl md:text-4xl text-amber-800 font-serif font-bold mb-2">
             श्री गणेशाय नमः
           </p>
-          <p className="text-amber-700/80 text-lg uppercase tracking-widest">
+          <p className="text-amber-700/80 text-lg uppercase tracking-widest mb-8">
             Blessings of the Divine
           </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: showButton ? 1 : 0, y: showButton ? 0 : 20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <button
+              onClick={handleOpen}
+              disabled={!showButton}
+              className={`
+                bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full 
+                font-serif text-xl shadow-lg transition-all duration-300
+                flex items-center gap-3 mx-auto
+                ${!showButton ? 'pointer-events-none' : 'hover:scale-105 active:scale-95'}
+              `}
+            >
+              Open Invitation
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>
