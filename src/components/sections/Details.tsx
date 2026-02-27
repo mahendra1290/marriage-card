@@ -90,7 +90,7 @@ export const Details: React.FC = () => {
               href={mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-amber-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow-lg hover:bg-amber-800 transition-colors flex items-center gap-2"
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-amber-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow-lg hover:bg-amber-800 transition-colors flex items-center gap-2 whitespace-nowrap"
             >
               📍 Open in Google Maps
             </a>
