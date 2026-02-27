@@ -21,11 +21,12 @@
     "seconds": "सेकंड"
   },
   "details": {
-    "dateTitle": "दिनांक",
-    "day": "सोमवार",
-    "timeTitle": "समय",
-    "startTime": "सायं 6:15 बजे से",
-    "events": "प्रीतिभोज एवं स्वागत",
+    "receptionTitle": "प्रीतिभोज एवं स्वागत",
+    "receptionDate": "8 मार्च 2026 (रविवार)",
+    "receptionTime": "सायं 6:15 बजे से",
+    "weddingTitle": "शुभ विवाह (बारात)",
+    "weddingDate": "9 मार्च 2026 (सोमवार)",
+    "weddingTime": "सायं 4:15 बजे से",
     "venueTitle": "स्थान",
     "venueName": "ग्राम जयसंगसर",
     "venueCity": "सरदारशहर, चूरू, राजस्थान"

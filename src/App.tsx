@@ -15,16 +15,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
 
-  // Called on the user's very first touch on the preloader — valid gesture for mobile audio
-  const handleFirstTouch = useCallback(() => {
-    playAudio();
-  }, []);
-
   const handlePreloaderComplete = useCallback(() => {
     setIsLoading(false);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3500);
-    playAudio(); // also try on dismiss (works on desktop)
+    playAudio(); // Try on dismiss (works on desktop)
   }, []);
 
   return (
@@ -34,7 +29,6 @@ function App() {
           <Preloader
             key="preloader"
             onComplete={handlePreloaderComplete}
-            onFirstTouch={handleFirstTouch}
           />
         )}
       </AnimatePresence>

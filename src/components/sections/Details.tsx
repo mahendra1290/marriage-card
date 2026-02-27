@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
-import { Calendar, MapPin, Clock } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 const cardVariants = {
   hidden: { opacity: 0, x: -50 },
@@ -20,8 +20,8 @@ export const Details: React.FC = () => {
   const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${VENUE_LAT},${VENUE_LNG}`;
 
   const cards = [
-    { icon: Calendar, titleKey: 'details.dateTitle', lines: ['landing.date', 'details.day'], href: null },
-    { icon: Clock, titleKey: 'details.timeTitle', lines: ['details.startTime', 'details.events'], href: null },
+    { icon: Calendar, titleKey: 'details.receptionTitle', lines: ['details.receptionDate', 'details.receptionTime'], href: null },
+    { icon: Calendar, titleKey: 'details.weddingTitle', lines: ['details.weddingDate', 'details.weddingTime'], href: null },
     { icon: MapPin, titleKey: 'details.venueTitle', lines: ['details.venueName', 'details.venueCity'], href: mapsUrl },
   ];
 

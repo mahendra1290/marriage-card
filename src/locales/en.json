@@ -21,11 +21,12 @@
     "seconds": "Seconds"
   },
   "details": {
-    "dateTitle": "Date",
-    "day": "Monday",
-    "timeTitle": "Time",
-    "startTime": "6:15 PM Onwards",
-    "events": "Preetibhoj & Reception",
+    "receptionTitle": "Preetibhoj & Reception",
+    "receptionDate": "March 8, 2026 (Sunday)",
+    "receptionTime": "6:15 PM Onwards",
+    "weddingTitle": "Wedding (Baarat)",
+    "weddingDate": "March 9, 2026 (Monday)",
+    "weddingTime": "4:15 PM Onwards",
     "venueTitle": "Venue",
     "venueName": "Gram Jaisangsar",
     "venueCity": "Sardarshahar, Churu, Rajasthan"
