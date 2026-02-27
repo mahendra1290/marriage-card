@@ -33,13 +33,13 @@ export const Landing: React.FC = () => {
       {/* Content */}
       <motion.div
         style={{ y: yText, opacity: opacityText }}
-        className="relative z-10 text-center p-6 sm:p-10 md:p-14 bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] shadow-2xl border border-white/40 max-w-3xl mx-4"
+        className="relative z-10 text-center p-6 sm:p-8 md:p-10 bg-white/30 backdrop-blur-xl rounded-2xl sm:rounded-[3rem] shadow-2xl border border-white/40 max-w-3xl mx-4 mt-16 sm:mt-24 md:mt-32"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.p
-          className="text-amber-700 font-medium tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-4 uppercase text-sm sm:text-base"
+          className="text-amber-700 font-medium tracking-[0.15em] sm:tracking-[0.2em] mb-2 sm:mb-3 uppercase text-sm sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -47,15 +47,15 @@ export const Landing: React.FC = () => {
           {t('common.weddingOf')}
         </motion.p>
         <h1 
-          className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-4 sm:mb-6 font-medium tracking-normal gold-shimmer py-2 ${
+          className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl mb-3 sm:mb-4 font-medium tracking-normal gold-shimmer py-2 ${
             language === 'hi' ? 'font-hindi-script tracking-wider' : 'font-script'
           }`}
         >
           {t('landing.title')}
         </h1>
-        <div className="w-16 sm:w-24 h-1 bg-amber-400 mx-auto mb-4 sm:mb-6 rounded-full" />
+        <div className="w-16 sm:w-24 h-1 bg-amber-400 mx-auto mb-3 sm:mb-4 rounded-full" />
         <motion.p
-          className="text-xl sm:text-2xl md:text-3xl font-serif text-amber-900"
+          className="text-xl sm:text-2xl md:text-3xl font-serif text-amber-900 mb-2 sm:mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}

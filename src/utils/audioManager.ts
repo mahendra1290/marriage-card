@@ -1,5 +1,6 @@
 // Singleton audio manager — shared across the entire app
-let audio: HTMLAudioElement | null = null;
+// We attach it to the window object to handle hot module reloading (HMR) gracefully
+let audio: HTMLAudioElement | null = typeof window !== 'undefined' ? (window as any).__sharedAudio || null : null;
 let autoplayAttempted = false;
 
 // We delay creating the Audio object until the exact moment of the first user 
@@ -9,6 +10,9 @@ function initAudio(): HTMLAudioElement {
     audio = new Audio('/wedding-music.mp3');
     audio.loop = true;
     audio.volume = 0.3;
+    if (typeof window !== 'undefined') {
+      (window as any).__sharedAudio = audio;
+    }
   }
   return audio;
 }
@@ -55,4 +59,20 @@ if (typeof window !== 'undefined') {
 
   document.addEventListener('click', handleFirstInteraction, { capture: true, once: true });
   document.addEventListener('touchstart', handleFirstInteraction, { capture: true, once: true });
+
+  let wasPlayingBeforeHidden = false;
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      if (isAudioPlaying()) {
+        wasPlayingBeforeHidden = true;
+        pauseAudio();
+      } else {
+        wasPlayingBeforeHidden = false;
+      }
+    } else {
+      if (wasPlayingBeforeHidden) {
+        playAudio();
+      }
+    }
+  });
 }

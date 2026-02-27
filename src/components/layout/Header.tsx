@@ -12,10 +12,10 @@ export const Header: React.FC = () => {
   return (
     <header className="fixed w-full z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
       <div className="container mx-auto px-4 py-2 sm:py-3 flex justify-between items-center relative">
-        <div className={`text-4xl font-bold tracking-wider gold-shimmer py-1 ${
+        <div className={`text-4xl font-bold tracking-wider gold-shimmer py-1 px-1 ${
           language === 'hi' ? 'font-hindi-script' : 'font-script'
         }`}>
-         {language === 'hi' ? 'वी & म' : 'V & M'}
+         {language === 'hi' ? 'वि & म' : 'V & M'}
         </div>
 
         <nav className="hidden md:flex gap-6 items-center text-amber-900 font-medium">
