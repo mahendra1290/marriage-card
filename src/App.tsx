@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Layout } from './components/layout/Layout';
 import { Landing } from './components/sections/Landing';
-import { Countdown } from './components/sections/Countdown';
 import { Details } from './components/sections/Details';
 import { Invitation } from './components/sections/Invitation';
 import { Events } from './components/sections/Events';
@@ -33,7 +32,6 @@ function App() {
       {!isLoading && (
         <Layout>
           <Landing />
-          <Countdown />
           <Details />
           <Invitation />
           <Events />
