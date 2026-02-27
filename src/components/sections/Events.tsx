@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
-import baanImg from '../../assets/event-baan.png';
-import ratijogaImg from '../../assets/event-ratijoga.png';
-import preetibhojImg from '../../assets/event-preetibhoj.png';
-import baaratImg from '../../assets/event-baarat.png';
+import baanImg from '../../assets/event-baan.webp';
+import ratijogaImg from '../../assets/event-ratijoga.webp';
+import preetibhojImg from '../../assets/event-preetibhoj.webp';
+import baaratImg from '../../assets/event-baarat.webp';
 
 const events = [
   { key: 'baan', img: baanImg },
@@ -46,6 +46,8 @@ export const Events: React.FC = () => {
                   src={event.img}
                   alt={t(`events.${event.key}.title`)}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 

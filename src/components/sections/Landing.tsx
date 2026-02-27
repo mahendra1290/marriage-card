@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { ChevronDown } from 'lucide-react';
-import baraatBg from '../../assets/landing-baraat.png';
+import baraatBg from '../../assets/landing-baraat.webp';
 
 export const Landing: React.FC = () => {
   const { t } = useLanguage();

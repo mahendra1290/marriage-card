@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import ganeshaSymbol from '../../assets/ganesha-symbol.png';
-import petal from '../../assets/marigold-petal.png';
+import ganeshaSymbol from '../../assets/ganesha-symbol.webp';
+import petal from '../../assets/marigold-petal.webp';
 
 interface PreloaderProps {
   onComplete: () => void;
