@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import ganeshaSymbol from '../../assets/ganesha-symbol.webp';
 import petal from '../../assets/marigold-petal.webp';
 
 interface PreloaderProps {
   onComplete: () => void;
+  onFirstTouch?: () => void;
 }
 
 const FlowerPetal = ({ index }: { index: number }) => {
@@ -40,8 +41,9 @@ const FlowerPetal = ({ index }: { index: number }) => {
   );
 };
 
-export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
+export const Preloader: React.FC<PreloaderProps> = ({ onComplete, onFirstTouch }) => {
   const [petals, setPetals] = useState<number[]>([]);
+  const firedTouch = useRef(false);
 
   useEffect(() => {
     // Determine total animation time
@@ -55,12 +57,21 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     return () => clearTimeout(timer);
   }, [onComplete]);
 
+  const handleFirstTouch = () => {
+    if (!firedTouch.current && onFirstTouch) {
+      firedTouch.current = true;
+      onFirstTouch();
+    }
+  };
+
   return (
     <motion.div
       className="fixed inset-0 z-[60] flex items-center justify-center bg-amber-50 overflow-hidden"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1 }}
+      onTouchStart={handleFirstTouch}
+      onClick={handleFirstTouch}
     >
       {/* Flower Shower */}
       {petals.map((i) => (
