@@ -60,6 +60,15 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
   const handleOpen = () => {
     // Explicit user click -> safe to instantiate and play audio
     playAudio();
+    
+    // Track event
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'open_invitation', {
+        event_category: 'engagement',
+        event_label: 'Preloader Open Button'
+      });
+    }
+
     onComplete();
   };
 

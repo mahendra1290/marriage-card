@@ -14,6 +14,29 @@ export const Landing: React.FC = () => {
   const yText = useTransform(scrollY, [0, 300], [0, 100]);
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
+  // Track manual scrolling
+  React.useEffect(() => {
+    let hasScrolled = false;
+    
+    // Subscribe to the scroll event
+    const unsubscribe = scrollY.onChange((latest) => {
+      // If user scrolls down past 100px and we haven't tracked it yet
+      if (latest > 100 && !hasScrolled) {
+        hasScrolled = true;
+        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+          window.gtag('event', 'page_scrolled', {
+            event_category: 'engagement',
+            event_label: 'Manual Scroll'
+          });
+        }
+        // Unsubscribe immediately after firing once
+        unsubscribe();
+      }
+    });
+
+    return () => unsubscribe();
+  }, [scrollY]);
+
   return (
     <section id="home" className="relative h-[100dvh] min-h-[600px] overflow-hidden flex items-center justify-center">
       {/* Background with Parallax */}
