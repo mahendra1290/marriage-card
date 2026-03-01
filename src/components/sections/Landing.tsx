@@ -72,7 +72,15 @@ export const Landing: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        onClick={() => document.getElementById('details')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => {
+          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            window.gtag('event', 'scroll_to_details', {
+              event_category: 'engagement',
+              event_label: 'Landing Scroll Button'
+            });
+          }
+          document.getElementById('details')?.scrollIntoView({ behavior: 'smooth' });
+        }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

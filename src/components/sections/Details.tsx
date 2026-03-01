@@ -50,7 +50,17 @@ export const Details: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 className={`bg-white/50 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-amber-100 flex items-start gap-4 hover:shadow-md transition-shadow flex-1 ${card.href ? 'cursor-pointer group' : ''}`}
-                onClick={() => card.href && window.open(card.href, '_blank')}
+                onClick={() => {
+                  if (card.href) {
+                    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                      window.gtag('event', 'view_map_directions', {
+                        event_category: 'engagement',
+                        event_label: 'Details Section Map Link'
+                      });
+                    }
+                    window.open(card.href, '_blank');
+                  }
+                }}
               >
                 <card.icon className="text-amber-700 mt-1 group-hover:scale-110 transition-transform" size={32} />
                 <div>
@@ -91,6 +101,14 @@ export const Details: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-amber-700 text-white text-sm font-medium px-5 py-2 rounded-full shadow-lg hover:bg-amber-800 transition-colors flex items-center gap-2 whitespace-nowrap"
+              onClick={() => {
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'view_map_directions', {
+                    event_category: 'engagement',
+                    event_label: 'Map Iframe Button'
+                  });
+                }
+              }}
             >
               📍 Open in Google Maps
             </a>
