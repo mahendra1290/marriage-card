@@ -15,7 +15,7 @@ export const Landing: React.FC = () => {
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden flex items-center justify-center">
+    <section id="home" className="relative h-[100dvh] min-h-[600px] overflow-hidden flex items-center justify-center">
       {/* Background with Parallax */}
       <motion.div
         style={{ y: yBg }}
@@ -68,17 +68,23 @@ export const Landing: React.FC = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-6 sm:bottom-10 z-10 text-white flex flex-col items-center gap-1 sm:gap-2"
+        className="absolute bottom-10 sm:bottom-12 z-10 flex flex-col items-center gap-3 cursor-pointer group"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        onClick={() => document.getElementById('details')?.scrollIntoView({ behavior: 'smooth' })}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <span className="text-xs sm:text-sm font-light tracking-widest uppercase">{t('landing.scroll')}</span>
+        <span className="text-sm sm:text-base md:text-lg font-medium tracking-widest uppercase text-white drop-shadow-md bg-black/30 px-6 py-2 rounded-full backdrop-blur-md border border-white/40 group-hover:bg-black/40 group-hover:border-white/60 transition-all">
+          {t('landing.scroll')}
+        </span>
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          className="text-white drop-shadow-xl mt-1"
+          animate={{ y: [0, 16, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <ChevronDown size={28} />
+          <ChevronDown size={48} strokeWidth={2.5} />
         </motion.div>
       </motion.div>
     </section>
