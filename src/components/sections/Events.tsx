@@ -8,8 +8,8 @@ import baaratImg from '../../assets/event-baarat.webp';
 
 const events = [
   { key: 'baan', img: baanImg },
-  { key: 'ratijoga', img: ratijogaImg },
   { key: 'preetibhoj', img: preetibhojImg },
+  { key: 'ratijoga', img: ratijogaImg },
   { key: 'baarat', img: baaratImg },
 ];
 

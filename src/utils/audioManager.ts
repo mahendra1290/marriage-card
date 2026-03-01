@@ -9,7 +9,7 @@ function initAudio(): HTMLAudioElement {
   if (!audio) {
     audio = new Audio('/wedding-music.mp3');
     audio.loop = true;
-    audio.volume = 0.3;
+    audio.volume = 0.15;
     if (typeof window !== 'undefined') {
       (window as any).__sharedAudio = audio;
     }
